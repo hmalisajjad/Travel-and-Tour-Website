@@ -1,0 +1,310 @@
+.FYPnavUl
+{
+    position: absolute;
+    right: 0px;
+}
+.book-a-car {
+
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: 0px;
+
+}
+.form-bgcolor{
+    color: #9E9E9E;
+}
+.section-title .title-line {
+    color: white;
+    position: relative;
+}
+
+.section-title .title-line::after {
+    background-color: white;
+    content: "";
+    height: 2px;
+    left: -60px;
+    position: absolute;
+    top: 10px;
+    width: 50px;
+}
+
+.section-title .title-line::before {
+    background-color: white;
+    content: "";
+    height: 2px;
+    position: absolute;
+    right: -60px;
+    top: 10px;
+    width: 50px;
+}
+
+.hover_edit:hover {
+    border-bottom: 1px solid #ffd000;
+    transition: 0.7s;
+}
+.hover_box{
+
+    transition: 0.7s;
+}
+.hover_box:hover{
+    box-shadow: 2px 2px 10px white;
+    transition: 0.7s;
+}
+.book-a-car select.custom-select {
+    background-image: url("assets/img/caret-cion.png");
+    background-position: right 13px center;
+    background-size: 12px auto;
+}
+
+.book-item {
+    margin-bottom: 0px;
+    background-position: right 13px center;
+    background-size: 12px auto;
+}
+.return-car {
+    margin-top: 0px;
+}
+
+.book-a-car h4 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.book-a-cars select {
+    border-color: #151414;
+    border-radius: 0;
+    font-size: 11px;
+    height: 23px;
+    width: 100%;
+    margin-bottom: 0px;
+    background-position: right 13px center;
+    background-size: 12px auto;
+}
+
+.book-a-car input:focus,
+.book-a-car select:focus {
+    border-color: #ffd000;
+}
+
+.book-a-car input {
+    border-right: 0 none;
+}
+
+.book-a-car .pick-up-date span.input-group-append {
+    background-color: #fff;
+    border: 1px auto #ffd000;
+}
+
+.book-a-car .pick-up-date span.input-group-append {
+    border-left: 0 none;
+}
+
+.book-a-car .pick-up-date span.input-group-append i.fa {
+    color: #ffd000;
+    font-size: 11px;
+    line-height: 23px;
+}
+
+.book-now-btn {
+    background-color: #ffd000;
+    color: #222;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 30px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.book-now-btn:focus {
+    color: #222;
+}
+
+.gj-calendar-bootstrap table tr td.today div {
+    color: #ffd000
+}
+
+.gj-calendar-bootstrap table tr td.selected div {
+    background-color: #ffd000;
+    border-color: #ffd000;
+}
+.about-content {
+    line-height: 2.3em;
+}
+fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+#partner-area {
+    background-color: #eaeaea;
+    padding: 20px 0;
+}
+
+.single-partner {
+    height: 105px;
+    text-align: center;
+}
+
+.partner-content-wrap.owl-carousel img {
+    margin: auto;
+    width: auto;
+}
+/*== Fun Fact Area CSS Start ==*/
+
+#funfact-area {
+    background-image: url(assets/img/funfact-bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+}
+
+.single-funfact {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 25px 40px;
+    text-align: center;
+}
+
+.funfact-icon {
+    color: #ffd000;
+    font-size: 50px;
+}
+
+.funfact-icon,
+.funfact-content {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.funfact-content {
+    font-size: 40px;
+    font-weight: 700;
+    padding-left: 25px;
+}
+
+.funfact-content h4 {
+    color: #eaeaea;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/*== Fun Fact Area CSS End ==*/
+.service-item {
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    color: #222;
+    margin-bottom: 30px;
+    padding: 65px 25px;
+}
+
+.service-item h3 {
+    color: #000;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 20px 0 15px;
+}
+
+.service-item i.fa {
+    font-size: 55px;
+    color: #ffd000;
+}
+.about-content {
+    line-height: 2.3em;
+}
+
+.about-content p {
+    margin-bottom: 25px;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+.about-btn a {
+    background-color: #ffd000;
+    border-radius: 50px;
+    color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 20px;
+    padding: 6px 30px;
+    text-transform: uppercase;
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+.about-btn a:hover {
+    background-color: #222;
+}
+
+
+.about-video {
+    position: relative;
+    padding-bottom: 56.25%;
+}
+
+.about-video iframe {
+    border: medium none;
+    border-radius: 3px;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/*== About Area CSS End ==*/
+
+/*== Preloader Area CSS Start ==*/
+
+body.loader-active {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.preloader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    z-index: 9999;
+}
+
+.preloader-spinner {
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.loader-content {
+    width: 150px;
+}
+
+/*== Preloader Area CSS End ==*/
+#footer-widget-area
+{
+    margin-right: 50px;
+    margin-top: 20px;
+    float: right;
+    height: 50px;width: 70%px;
+    background-color: #2b2b2b;
+
+}
+.dark-color{
+    background-color: #000;
+}
