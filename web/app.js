@@ -228,24 +228,22 @@ function buildWhatsApp(summary) {
 }
 
 function buildEmailPayload(data, summary) {
-  const payload = new FormData();
-
-  payload.append("_subject", "Usman Tour and Travels booking request");
-  payload.append("_template", "table");
-  payload.append("_captcha", "false");
-  payload.append("_replyto", data.email);
-  payload.append("Name", data.name);
-  payload.append("Phone", data.phone);
-  payload.append("Email", data.email);
-  payload.append("Vehicle", data.vehicle);
-  payload.append("Pick-up city", data.city);
-  payload.append("Pick-up date", data.start);
-  payload.append("Return date", data.end);
-  payload.append("Trip purpose", data.purpose);
-  payload.append("Trip notes", data.notes || "No extra notes provided");
-  payload.append("Booking summary", summary.replaceAll(". ", ".\n"));
-
-  return payload;
+  return {
+    _subject: "Usman Tour and Travels booking request",
+    _template: "table",
+    _captcha: "false",
+    _replyto: data.email,
+    name: data.name,
+    phone: data.phone,
+    email: data.email,
+    vehicle: data.vehicle,
+    city: data.city,
+    pickup_date: data.start,
+    return_date: data.end,
+    trip_purpose: data.purpose,
+    trip_notes: data.notes || "No extra notes provided",
+    booking_summary: summary.replaceAll(". ", ".\n")
+  };
 }
 
 async function sendEmailRequest() {
@@ -259,21 +257,24 @@ async function sendEmailRequest() {
     const response = await fetch(formSubmitEndpoint, {
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Accept: "application/json"
       },
-      body: latestBooking.payload
+      body: JSON.stringify(latestBooking.payload)
     });
 
+    const result = await response.json().catch(() => ({}));
+
     if (!response.ok) {
-      throw new Error("Email service rejected the request");
+      throw new Error(result.message || "Email service rejected the request");
     }
 
     dialogContent.textContent = "Your booking request has been sent to Usman Tour and Travels. They will contact you as soon as they receive the email.";
     formStatus.textContent = "Booking request sent by email.";
     bookingForm.reset();
   } catch (error) {
-    dialogContent.textContent = "We could not send the email automatically right now. Please send the same request on WhatsApp or call Usman Tour and Travels.";
-    formStatus.textContent = "Email sending failed. WhatsApp and call options are still available.";
+    dialogContent.textContent = "The email service is not available or the receiving address still needs first-time activation. Please send this request on WhatsApp or call Usman Tour and Travels.";
+    formStatus.textContent = "Email service unavailable. WhatsApp and call options are still available.";
   } finally {
     emailButton.disabled = false;
     emailButton.textContent = "Email request";
