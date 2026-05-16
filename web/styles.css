@@ -727,28 +727,56 @@ textarea {
   font-weight: 850;
 }
 
-.floating-whatsapp {
+.floating-actions {
   position: fixed;
   right: 18px;
   bottom: 18px;
   z-index: 19;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.floating-action {
   display: inline-flex;
-  min-height: 48px;
+  width: 56px;
+  height: 56px;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 999px;
-  padding: 12px 18px;
+  border-radius: 50%;
   color: #fff;
-  background: #128c7e;
-  box-shadow: 0 14px 36px rgba(18, 140, 126, 0.28);
-  font-weight: 900;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.floating-whatsapp:hover,
-.floating-whatsapp:focus-visible {
+.floating-action svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+.floating-action-whatsapp {
+  background: #25d366;
+  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.3);
+}
+
+.floating-action-call {
+  background: var(--brand-2);
+  box-shadow: 0 14px 36px rgba(17, 100, 102, 0.28);
+}
+
+.floating-action:hover,
+.floating-action:focus-visible {
   transform: translateY(-3px);
+}
+
+.floating-action-whatsapp:hover,
+.floating-action-whatsapp:focus-visible {
+  box-shadow: 0 18px 44px rgba(37, 211, 102, 0.4);
+}
+
+.floating-action-call:hover,
+.floating-action-call:focus-visible {
   box-shadow: 0 18px 44px rgba(18, 140, 126, 0.36);
 }
 
@@ -979,12 +1007,20 @@ textarea {
     scroll-margin-top: 96px;
   }
 
-  .floating-whatsapp {
+  .floating-actions {
     right: 12px;
     bottom: 12px;
-    min-height: 44px;
-    padding: 10px 14px;
-    font-size: 0.9rem;
+    gap: 8px;
+  }
+
+  .floating-action {
+    width: 48px;
+    height: 48px;
+  }
+
+  .floating-action svg {
+    width: 24px;
+    height: 24px;
   }
 }
 

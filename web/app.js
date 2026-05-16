@@ -149,14 +149,12 @@ const startDateInput = document.querySelector("[data-start-date]");
 const endDateInput = document.querySelector("[data-end-date]");
 const dialog = document.querySelector("[data-dialog]");
 const dialogContent = document.querySelector("[data-dialog-content]");
-const emailButton = document.querySelector("[data-email-button]");
+const mailLink = document.querySelector("[data-mail-link]");
 const whatsappLink = document.querySelector("[data-whatsapp-link]");
 const closeDialog = document.querySelector("[data-dialog-close]");
 const slides = [...document.querySelectorAll(".hero-slide")];
 const whatsappNumber = "923329271420";
 const bookingEmail = "alisajjad251992@gmail.com";
-const formSubmitEndpoint = `https://formsubmit.co/ajax/${bookingEmail}`;
-let latestBooking = null;
 
 function formatCategory(category) {
   return category.charAt(0).toUpperCase() + category.slice(1);
@@ -227,58 +225,10 @@ function buildWhatsApp(summary) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
-function buildEmailPayload(data, summary) {
-  return {
-    _subject: "Usman Tour and Travels booking request",
-    _template: "table",
-    _captcha: "false",
-    _replyto: data.email,
-    name: data.name,
-    phone: data.phone,
-    email: data.email,
-    vehicle: data.vehicle,
-    city: data.city,
-    pickup_date: data.start,
-    return_date: data.end,
-    trip_purpose: data.purpose,
-    trip_notes: data.notes || "No extra notes provided",
-    booking_summary: summary.replaceAll(". ", ".\n")
-  };
-}
-
-async function sendEmailRequest() {
-  if (!latestBooking || !emailButton) return;
-
-  emailButton.disabled = true;
-  emailButton.textContent = "Sending...";
-  dialogContent.textContent = "Sending your booking request by email. Please wait a moment.";
-
-  try {
-    const response = await fetch(formSubmitEndpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(latestBooking.payload)
-    });
-
-    const result = await response.json().catch(() => ({}));
-
-    if (!response.ok) {
-      throw new Error(result.message || "Email service rejected the request");
-    }
-
-    dialogContent.textContent = "Your booking request has been sent to Usman Tour and Travels. They will contact you as soon as they receive the email.";
-    formStatus.textContent = "Booking request sent by email.";
-    bookingForm.reset();
-  } catch (error) {
-    dialogContent.textContent = "The email service is not available or the receiving address still needs first-time activation. Please send this request on WhatsApp or call Usman Tour and Travels.";
-    formStatus.textContent = "Email service unavailable. WhatsApp and call options are still available.";
-  } finally {
-    emailButton.disabled = false;
-    emailButton.textContent = "Email request";
-  }
+function buildMailto(summary) {
+  const subject = encodeURIComponent("Usman Tour and Travels booking request");
+  const body = encodeURIComponent(summary.replaceAll(". ", ".\n"));
+  return `mailto:${bookingEmail}?subject=${subject}&body=${body}`;
 }
 
 function observeRevealItems(items = document.querySelectorAll("[data-reveal]")) {
@@ -348,11 +298,9 @@ bookingForm.addEventListener("submit", (event) => {
 
   dialogContent.textContent = "Your booking request is ready. Choose WhatsApp, email, or call below to send the request to Usman Tour and Travels.";
   whatsappLink.href = whatsappUrl;
-  latestBooking = {
-    payload: buildEmailPayload(data, summary),
-    summary
-  };
+  mailLink.href = buildMailto(summary);
   formStatus.textContent = "Booking request ready. Choose WhatsApp, email, or call from the popup.";
+  bookingForm.reset();
 
   if (typeof dialog.showModal === "function") {
     dialog.showModal();
@@ -361,7 +309,6 @@ bookingForm.addEventListener("submit", (event) => {
   }
 });
 
-emailButton?.addEventListener("click", sendEmailRequest);
 closeDialog.addEventListener("click", () => dialog.close());
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();

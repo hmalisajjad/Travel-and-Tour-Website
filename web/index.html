@@ -85,11 +85,8 @@
             </div>
           </div>
 
-          <form class="booking-card" id="booking" action="https://formsubmit.co/alisajjad251992@gmail.com" method="post" data-booking-form>
+          <form class="booking-card" id="booking" action="server.php" method="post" data-booking-form>
             <input type="hidden" name="form_type" value="modern_booking">
-            <input type="hidden" name="_subject" value="Usman Tour and Travels booking request">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
             <div class="form-head">
               <p class="eyebrow">Quick request</p>
               <h2>Plan your ride</h2>
@@ -273,9 +270,20 @@
       <a class="footer-social" href="https://www.facebook.com/Usmantourstravel" target="_blank" rel="noopener">Facebook</a>
     </footer>
 
-    <a class="floating-whatsapp" href="https://wa.me/923329271420" target="_blank" rel="noopener" aria-label="Message Usman Tour and Travels on WhatsApp">
-      WhatsApp
-    </a>
+    <div class="floating-actions" aria-label="Quick contact options">
+      <a class="floating-action floating-action-whatsapp" href="https://wa.me/923329271420" target="_blank" rel="noopener" aria-label="Message Usman Tour and Travels on WhatsApp">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16.03 4.8a10.98 10.98 0 0 0-9.47 16.56L5.2 27.2l5.98-1.32A10.98 10.98 0 1 0 16.03 4.8Zm0 2.12a8.86 8.86 0 0 1 7.5 13.58 8.86 8.86 0 0 1-11.9 3.24l-.36-.2-3.2.7.72-3.1-.24-.38A8.86 8.86 0 0 1 16.03 6.92Zm-4.02 4.6c-.2 0-.52.08-.8.38-.28.3-1.06 1.04-1.06 2.54s1.08 2.94 1.24 3.14c.16.2 2.1 3.36 5.22 4.58 2.58 1.02 3.1.82 3.66.76.56-.06 1.8-.74 2.06-1.46.26-.72.26-1.34.18-1.46-.08-.12-.28-.2-.58-.36-.3-.16-1.8-.9-2.08-1-.28-.1-.48-.16-.68.16-.2.3-.78 1-.96 1.2-.18.2-.36.22-.66.08-.3-.16-1.28-.48-2.44-1.5-.9-.8-1.5-1.78-1.68-2.08-.18-.3-.02-.46.14-.62.14-.14.3-.36.46-.54.16-.18.2-.3.3-.5.1-.2.04-.38-.02-.54-.06-.16-.68-1.64-.94-2.24-.24-.58-.5-.52-.68-.52h-.64Z"/>
+        </svg>
+        <span class="sr-only">WhatsApp</span>
+      </a>
+      <a class="floating-action floating-action-call" href="tel:+923329271420" aria-label="Call Usman Tour and Travels">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M6.62 10.79c1.46 2.87 3.72 5.12 6.59 6.59l2.2-2.2c.3-.3.75-.39 1.14-.26 1.25.41 2.6.63 3.95.63.61 0 1.1.49 1.1 1.1v3.5c0 .61-.49 1.1-1.1 1.1C10.63 21.25 2.75 13.37 2.75 3.5c0-.61.49-1.1 1.1-1.1h3.5c.61 0 1.1.49 1.1 1.1 0 1.35.21 2.7.63 3.95.13.39.04.84-.26 1.14l-2.2 2.2Z"/>
+        </svg>
+        <span class="sr-only">Call</span>
+      </a>
+    </div>
 
     <dialog class="booking-dialog" data-dialog>
       <button class="dialog-close" type="button" aria-label="Close" data-dialog-close>&times;</button>
@@ -283,7 +291,7 @@
       <p data-dialog-content></p>
       <div class="dialog-actions">
         <a class="btn btn-primary" data-whatsapp-link href="https://wa.me/923329271420" target="_blank" rel="noopener">Send on WhatsApp</a>
-        <button class="btn btn-secondary" type="button" data-email-button>Email request</button>
+        <a class="btn btn-secondary" data-mail-link href="mailto:alisajjad251992@gmail.com">Email request</a>
         <a class="btn btn-secondary" href="tel:+923329271420">Call to book</a>
       </div>
     </dialog>
