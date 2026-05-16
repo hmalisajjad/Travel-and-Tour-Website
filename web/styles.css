@@ -10,6 +10,7 @@
   --navy: #102a3a;
   --danger: #b3483b;
   --shadow: 0 18px 50px rgba(16, 42, 58, 0.14);
+  --lift: 0 22px 45px rgba(16, 42, 58, 0.16);
   --radius: 8px;
   --max: 1180px;
 }
@@ -75,6 +76,7 @@ textarea {
   background: rgba(12, 23, 30, 0.72);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
   backdrop-filter: blur(18px);
+  transition: background 220ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
 
 .site-header.is-scrolled {
@@ -95,6 +97,7 @@ textarea {
 }
 
 .site-nav a {
+  position: relative;
   min-height: 42px;
   padding: 10px 13px;
   border-radius: var(--radius);
@@ -109,9 +112,32 @@ textarea {
   background: rgba(255, 255, 255, 0.12);
 }
 
+.site-nav a::after {
+  position: absolute;
+  right: 13px;
+  bottom: 6px;
+  left: 13px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--brand);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
 .site-nav .nav-cta {
   color: #17130a;
   background: var(--brand);
+}
+
+.site-nav .nav-cta::after {
+  background: #17130a;
 }
 
 .nav-toggle {
@@ -181,6 +207,7 @@ textarea {
 .hero-copy {
   max-width: 710px;
   padding-bottom: 44px;
+  animation: heroCopyIn 680ms ease both;
 }
 
 .eyebrow {
@@ -234,7 +261,41 @@ h3 {
   margin-top: 30px;
 }
 
+.route-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 680px;
+  margin-top: 28px;
+}
+
+.route-line span {
+  position: relative;
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 7px 12px;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.86rem;
+  font-weight: 800;
+  backdrop-filter: blur(10px);
+}
+
+.route-line span:not(:last-child)::after {
+  position: absolute;
+  right: -12px;
+  width: 12px;
+  height: 2px;
+  background: rgba(246, 194, 21, 0.75);
+  content: "";
+}
+
 .btn {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   min-height: 48px;
   align-items: center;
@@ -244,6 +305,25 @@ h3 {
   padding: 12px 18px;
   font-weight: 850;
   cursor: pointer;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.btn::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.34) 45%, transparent 75%);
+  content: "";
+  transform: translateX(-120%);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+}
+
+.btn:hover::before,
+.btn:focus-visible::before {
+  animation: buttonSheen 700ms ease;
 }
 
 .btn-primary {
@@ -272,6 +352,7 @@ h3 {
   color: var(--ink);
   background: rgba(255, 255, 255, 0.96);
   box-shadow: var(--shadow);
+  animation: cardIn 760ms 140ms ease both;
 }
 
 .form-head {
@@ -340,6 +421,12 @@ textarea {
   padding: 26px 18px;
   background: #fff;
   text-align: center;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.trust-strip div:hover {
+  background: #fbfcfc;
+  transform: translateY(-2px);
 }
 
 .trust-strip strong,
@@ -400,6 +487,7 @@ textarea {
   background: #fff;
   font-weight: 850;
   cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .filter-btn.is-active,
@@ -407,6 +495,7 @@ textarea {
   color: #fff;
   border-color: var(--teal);
   background: var(--teal);
+  transform: translateY(-1px);
 }
 
 .fleet-grid,
@@ -424,6 +513,15 @@ textarea {
   background: #fff;
   box-shadow: 0 10px 30px rgba(16, 42, 58, 0.06);
   overflow: hidden;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.vehicle-card:hover,
+.service-card:hover,
+.about-panel:hover {
+  border-color: rgba(17, 100, 102, 0.28);
+  box-shadow: var(--lift);
+  transform: translateY(-5px);
 }
 
 .vehicle-card {
@@ -436,6 +534,11 @@ textarea {
   height: 220px;
   object-fit: cover;
   background: #d9e2e5;
+  transition: transform 500ms ease;
+}
+
+.vehicle-card:hover img {
+  transform: scale(1.035);
 }
 
 .service-card img {
@@ -444,6 +547,11 @@ textarea {
   object-fit: contain;
   padding: 6px;
   background: #eef3f4;
+  transition: transform 450ms ease;
+}
+
+.service-card:hover img {
+  transform: scale(1.025);
 }
 
 .vehicle-body,
@@ -573,6 +681,14 @@ textarea {
   padding: 18px;
   background: var(--soft);
   font-weight: 900;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.contact-cards a:hover,
+.contact-cards a:focus-visible {
+  border-color: rgba(17, 100, 102, 0.35);
+  background: #fff;
+  transform: translateX(4px);
 }
 
 .contact-cards span {
@@ -611,6 +727,31 @@ textarea {
   font-weight: 850;
 }
 
+.floating-whatsapp {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 19;
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 12px 18px;
+  color: #fff;
+  background: #128c7e;
+  box-shadow: 0 14px 36px rgba(18, 140, 126, 0.28);
+  font-weight: 900;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.floating-whatsapp:hover,
+.floating-whatsapp:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(18, 140, 126, 0.36);
+}
+
 .booking-dialog {
   width: min(92vw, 520px);
   border: 0;
@@ -639,6 +780,63 @@ textarea {
 .booking-dialog .btn-secondary {
   color: var(--ink);
   border-color: var(--line);
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 560ms ease, transform 560ms ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes heroCopyIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes buttonSheen {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (max-width: 980px) {
@@ -691,6 +889,10 @@ textarea {
     width: 100%;
   }
 
+  .site-nav a::after {
+    display: none;
+  }
+
   .hero {
     padding-top: 112px;
   }
@@ -709,6 +911,14 @@ textarea {
   .vehicle-card img,
   .service-card img {
     height: 210px;
+  }
+
+  .floating-whatsapp {
+    right: 12px;
+    bottom: 12px;
+    min-height: 44px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
   }
 }
 

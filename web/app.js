@@ -160,7 +160,7 @@ function renderVehicles(category = "all") {
   const filtered = category === "all" ? vehicles : vehicles.filter((vehicle) => vehicle.category === category);
 
   grid.innerHTML = filtered.map((vehicle) => `
-    <article class="vehicle-card">
+    <article class="vehicle-card" data-reveal>
       <img src="${vehicle.image}" alt="${vehicle.name}" loading="lazy">
       <div class="vehicle-body">
         <div class="vehicle-top">
@@ -179,6 +179,7 @@ function renderVehicles(category = "all") {
       </div>
     </article>
   `).join("");
+  observeRevealItems(grid.querySelectorAll("[data-reveal]"));
 }
 
 function fillVehicleOptions() {
@@ -199,6 +200,26 @@ function buildWhatsApp(summary) {
   ].join("\n");
 
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+function observeRevealItems(items = document.querySelectorAll("[data-reveal]")) {
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, activeObserver) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      activeObserver.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.16,
+    rootMargin: "0px 0px -40px"
+  });
+
+  items.forEach((item) => observer.observe(item));
 }
 
 navToggle.addEventListener("click", () => {
@@ -259,6 +280,8 @@ bookingForm.addEventListener("submit", (event) => {
 closeDialog.addEventListener("click", () => dialog.close());
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
+
+observeRevealItems();
 
 let slideIndex = 0;
 setInterval(() => {
