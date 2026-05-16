@@ -263,11 +263,10 @@ bookingForm.addEventListener("submit", (event) => {
   const summary = `Booking request from ${data.name}. Phone: ${data.phone}. Email: ${data.email}. Vehicle: ${data.vehicle}. City: ${data.city}. Pick-up date: ${data.start}. Return date: ${data.end}. Purpose: ${data.purpose}.${tripNotes} Please confirm availability and final pricing.`;
   const whatsappUrl = buildWhatsApp(summary);
 
-  dialogContent.textContent = "Your booking request has been prepared for WhatsApp. Please tap Send in WhatsApp so Usman Tour and Travels receives the full form details.";
+  dialogContent.textContent = "Your booking request is ready. Choose WhatsApp, email, or call below to send the request to Usman Tour and Travels.";
   mailLink.href = buildMailto(summary);
   whatsappLink.href = whatsappUrl;
-  formStatus.textContent = "WhatsApp booking message is ready. Tap Send in WhatsApp to complete it.";
-  window.open(whatsappUrl, "_blank", "noopener");
+  formStatus.textContent = "Booking request ready. Choose WhatsApp, email, or call from the popup.";
   bookingForm.reset();
 
   if (typeof dialog.showModal === "function") {
