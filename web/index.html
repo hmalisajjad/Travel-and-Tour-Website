@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="U&A Travels offers chauffeur-driven car rental, airport transfers, tour planning, and corporate transport across Islamabad, Rawalpindi, Lahore, and Pakistan.">
+    <title>U&A Travels | Car Rental & Tour Planning</title>
+    <link rel="preload" as="image" href="images/prados.jpg">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="U&A Travels home">
+        <img src="images/logo%20(2).png" alt="U&A Travels logo">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav>
+        <a href="#fleet">Vehicles</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#booking">Book now</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-media" aria-hidden="true">
+          <img class="hero-slide is-active" src="images/prados.jpg" alt="">
+          <img class="hero-slide" src="images/revos.jpg" alt="">
+          <img class="hero-slide" src="images/v8s.jpg" alt="">
+          <img class="hero-slide" src="images/7%20seriess.jpg" alt="">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow">Chauffeur-driven rentals and managed tours</p>
+            <h1>U&A Travels</h1>
+            <p class="hero-text">Reliable transport for airport transfers, business travel, family trips, and custom holiday plans across Pakistan.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#booking">Reserve a vehicle</a>
+              <a class="btn btn-secondary" href="#fleet">Explore fleet</a>
+            </div>
+          </div>
+
+          <form class="booking-card" id="booking" data-booking-form>
+            <div class="form-head">
+              <p class="eyebrow">Quick request</p>
+              <h2>Plan your ride</h2>
+            </div>
+            <label>
+              Pick-up city
+              <select name="city" required>
+                <option value="">Select city</option>
+                <option>Islamabad</option>
+                <option>Rawalpindi</option>
+                <option>Lahore</option>
+                <option>Karachi</option>
+              </select>
+            </label>
+            <div class="form-grid">
+              <label>
+                Pick-up date
+                <input name="start" type="date" required>
+              </label>
+              <label>
+                Return date
+                <input name="end" type="date" required>
+              </label>
+            </div>
+            <label>
+              Vehicle type
+              <select name="vehicle" required data-vehicle-select>
+                <option value="">Select vehicle</option>
+              </select>
+            </label>
+            <label>
+              Trip purpose
+              <select name="purpose">
+                <option>Airport transfer</option>
+                <option>Local rental</option>
+                <option>Outstation trip</option>
+                <option>Holiday planning</option>
+                <option>Corporate booking</option>
+              </select>
+            </label>
+            <button class="btn btn-primary btn-full" type="submit">Check availability</button>
+            <p class="form-note" data-form-status>We will prepare a request summary instantly.</p>
+          </form>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Service highlights">
+        <div>
+          <strong>24/7</strong>
+          <span>Booking support</span>
+        </div>
+        <div>
+          <strong>10+</strong>
+          <span>Years of service</span>
+        </div>
+        <div>
+          <strong>Driver</strong>
+          <span>Professional chauffeurs</span>
+        </div>
+        <div>
+          <strong>Pakistan</strong>
+          <span>City and outstation trips</span>
+        </div>
+      </section>
+
+      <section class="section" id="fleet">
+        <div class="section-head">
+          <p class="eyebrow">Fleet</p>
+          <h2>Choose the right vehicle for the trip</h2>
+          <p>Filter by category, compare daily rates, and send a booking request without leaving the page.</p>
+        </div>
+        <div class="filter-bar" role="tablist" aria-label="Vehicle categories" data-filter-bar>
+          <button class="filter-btn is-active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="sedan">Sedans</button>
+          <button class="filter-btn" type="button" data-filter="suv">SUVs</button>
+          <button class="filter-btn" type="button" data-filter="luxury">Luxury</button>
+          <button class="filter-btn" type="button" data-filter="van">Vans</button>
+        </div>
+        <div class="fleet-grid" data-fleet-grid></div>
+      </section>
+
+      <section class="section section-muted" id="services">
+        <div class="section-head">
+          <p class="eyebrow">Services</p>
+          <h2>Travel support from booking to destination</h2>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <img src="images/rent%20a%20car.jpg" alt="Rental car on the road">
+            <h3>Rent a car</h3>
+            <p>Daily, weekly, monthly, corporate, and outstation rentals with chauffeur support.</p>
+          </article>
+          <article class="service-card">
+            <img src="images/pick.jpg" alt="Airport pickup service">
+            <h3>Pick and drop</h3>
+            <p>Airport, office, hotel, and event transfers in major cities with punctual scheduling.</p>
+          </article>
+          <article class="service-card">
+            <img src="images/trip.jpg" alt="Mountain road holiday trip">
+            <h3>Holiday planning</h3>
+            <p>Custom tour plans with vehicles, hotel coordination, and trip support for families and groups.</p>
+          </article>
+          <article class="service-card">
+            <img src="images/guider.jpg" alt="Tour guide assistance">
+            <h3>Tour guide</h3>
+            <p>Guided travel assistance for safer, clearer, and more enjoyable sightseeing.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section about-section" id="about">
+        <div class="about-copy">
+          <p class="eyebrow">About U&A Travels</p>
+          <h2>A practical travel partner for rentals, tours, and managed transport</h2>
+          <p>U&A Travels was built around a simple idea: make reservations easier for customers and transport easier to manage for the business. The modernized website keeps that purpose, with faster browsing, mobile-first layouts, dynamic fleet filtering, and instant booking summaries.</p>
+          <p>Customers can review available vehicles, choose services, plan trips, and contact the team from one responsive experience.</p>
+        </div>
+        <div class="about-panel">
+          <h3>Why customers choose us</h3>
+          <ul>
+            <li>Chauffeur-driven vehicles for local and outstation travel</li>
+            <li>Airport transfers, business travel, tours, and family trips</li>
+            <li>Online request flow for quicker reservations</li>
+            <li>Wide fleet from economy sedans to executive luxury vehicles</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Ready when your trip is</h2>
+          <p>Send a booking request or call the team for availability, final pricing, and route planning.</p>
+        </div>
+        <div class="contact-cards">
+          <a href="tel:+923329271420">
+            <span>Phone</span>
+            +92 332 9271420
+          </a>
+          <a href="tel:+923005169585">
+            <span>Alternate</span>
+            +92 300 5169585
+          </a>
+          <a href="mailto:greatvirgo251992@hotmail.com">
+            <span>Email</span>
+            greatvirgo251992@hotmail.com
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="images/logo%20(2).png" alt="U&A Travels logo">
+      <p>Copyright <span data-year></span> U&A Travels. All rights reserved.</p>
+    </footer>
+
+    <dialog class="booking-dialog" data-dialog>
+      <button class="dialog-close" type="button" aria-label="Close" data-dialog-close>&times;</button>
+      <h2>Booking request summary</h2>
+      <p data-dialog-content></p>
+      <div class="dialog-actions">
+        <a class="btn btn-primary" data-mail-link href="mailto:greatvirgo251992@hotmail.com">Email request</a>
+        <a class="btn btn-secondary" href="tel:+923329271420">Call now</a>
+      </div>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
