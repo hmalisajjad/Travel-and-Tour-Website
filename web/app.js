@@ -1,111 +1,102 @@
 const vehicles = [
   {
-    name: "Toyota Corolla",
-    category: "sedan",
-    image: "images/corolla.jpg",
-    year: "2016-2019",
+    name: "Toyota Corolla Cross Hybrid",
+    category: "hybrid",
+    image: "https://toyota-central.com/Assets/images/Vehicle/CorollaCross/Exterior4.jpg",
+    year: "2025-2026",
     seats: "4 seats",
-    local: "Rs. 3,000",
-    outstation: "Rs. 4,000"
+    local: "City quote",
+    outstation: "Route quote"
   },
   {
-    name: "Honda City",
+    name: "Honda City Aspire",
     category: "sedan",
     image: "images/city.jpg",
-    year: "2016-2019",
+    year: "2024-2026",
     seats: "4 seats",
-    local: "Rs. 3,000",
-    outstation: "Rs. 4,000"
+    local: "Economy quote",
+    outstation: "Route quote"
   },
   {
-    name: "Honda Civic",
+    name: "Honda Civic RS Turbo",
     category: "sedan",
     image: "images/civic.jpg",
-    year: "2016-2019",
+    year: "2024-2026",
     seats: "4 seats",
-    local: "Rs. 6,000",
-    outstation: "Rs. 7,000"
+    local: "Premium quote",
+    outstation: "Route quote"
   },
   {
-    name: "Honda BR-V",
-    category: "suv",
+    name: "Honda HR-V e:HEV",
+    category: "hybrid",
     image: "images/brv.jpg",
-    year: "2016-2019",
-    seats: "6 seats",
-    local: "Rs. 5,500",
-    outstation: "Rs. 6,500"
-  },
-  {
-    name: "Toyota Revo",
-    category: "suv",
-    image: "images/revo.jpg",
-    year: "2016-2019",
+    year: "2025-2026",
     seats: "4 seats",
-    local: "Rs. 8,000",
-    outstation: "Rs. 10,000"
+    local: "Hybrid quote",
+    outstation: "Route quote"
   },
   {
-    name: "Toyota Prado",
+    name: "Toyota Revo Rocco",
     category: "suv",
-    image: "images/prado.png",
-    year: "2016-2019",
-    seats: "6 seats",
-    local: "Rs. 11,000",
-    outstation: "Rs. 14,000"
+    image: "https://toyota-central.com/Assets/images/Vehicle/Revo/Revo-showcase1.jpg",
+    year: "2025-2026",
+    seats: "4 seats",
+    local: "4x4 quote",
+    outstation: "Tour quote"
   },
   {
-    name: "Toyota Land Cruiser V8",
+    name: "Toyota Fortuner Legender",
     category: "suv",
-    image: "images/v8.jpg",
-    year: "2016-2019",
-    seats: "6 seats",
-    local: "Rs. 22,000",
-    outstation: "Rs. 25,000"
+    image: "https://toyota-central.com/Assets/images/Vehicle/Fortuner/Fortunier.png",
+    year: "2025-2026",
+    seats: "6-7 seats",
+    local: "SUV quote",
+    outstation: "Tour quote"
   },
   {
-    name: "Mercedes C Class",
+    name: "Toyota Land Cruiser 300",
+    category: "suv",
+    image: "https://toyota-central.com/Assets/images/Vehicle/LandCruiser/Exterior/Exterior1.jpg",
+    year: "2024-2026",
+    seats: "6 seats",
+    local: "Executive quote",
+    outstation: "Protocol quote"
+  },
+  {
+    name: "Toyota Land Cruiser Prado",
     category: "luxury",
-    image: "images/c%20class.jpg",
-    year: "2008-2013",
-    seats: "4 seats",
-    local: "Rs. 12,000",
-    outstation: "Rs. 18,000"
+    image: "https://toyota-central.com/Assets/images/Vehicle/Prado/Prado1.png",
+    year: "2024-2026",
+    seats: "6-7 seats",
+    local: "Executive quote",
+    outstation: "Tour quote"
   },
   {
-    name: "Mercedes S Class",
+    name: "Mercedes S-Class",
     category: "luxury",
     image: "images/s%20class.jpg",
-    year: "2010-2016",
+    year: "Recent model",
     seats: "4 seats",
-    local: "Rs. 45,000",
-    outstation: "Rs. 55,000"
+    local: "VIP quote",
+    outstation: "Protocol quote"
   },
   {
-    name: "BMW 7 Series",
-    category: "luxury",
-    image: "images/7%20series.jpg",
-    year: "2005-2016",
-    seats: "4 seats",
-    local: "Rs. 35,000+",
-    outstation: "Rs. 40,000+"
-  },
-  {
-    name: "Suzuki APV",
+    name: "Toyota Hiace Deluxe",
     category: "van",
-    image: "images/apv.jpg",
-    year: "2010-2016",
-    seats: "7 seats",
-    local: "Rs. 4,000",
-    outstation: "Rs. 5,500"
+    image: "https://toyota-central.com/Assets/images/Vehicle/Hiace/Color/Color-Range.png",
+    year: "2024-2026",
+    seats: "10-14 seats",
+    local: "Group quote",
+    outstation: "Tour quote"
   },
   {
-    name: "Toyota Grand Cabin",
+    name: "Toyota Coaster / Grand Cabin",
     category: "van",
     image: "images/grandcabin.jpg",
-    year: "2016-2019",
-    seats: "10 seats",
-    local: "Rs. 6,000",
-    outstation: "Rs. 7,000"
+    year: "Recent model",
+    seats: "Group seats",
+    local: "Group quote",
+    outstation: "Tour quote"
   }
 ];
 
@@ -141,8 +132,8 @@ function renderVehicles(category = "all") {
         <ul class="vehicle-meta">
           <li><span>Model year</span><strong>${vehicle.year}</strong></li>
           <li><span>Capacity</span><strong>${vehicle.seats}</strong></li>
-          <li><span>Local day</span><strong>${vehicle.local}</strong></li>
-          <li><span>Outstation</span><strong>${vehicle.outstation}</strong></li>
+          <li><span>Local use</span><strong>${vehicle.local}</strong></li>
+          <li><span>Tour / route</span><strong>${vehicle.outstation}</strong></li>
         </ul>
       </div>
       <div class="vehicle-actions">
