@@ -199,7 +199,8 @@ bookingForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(bookingForm);
   const data = Object.fromEntries(formData.entries());
-  const summary = `Booking request from ${data.name}. Phone: ${data.phone}. Email: ${data.email}. Vehicle: ${data.vehicle}. City: ${data.city}. Pick-up date: ${data.start}. Return date: ${data.end}. Purpose: ${data.purpose}. Please confirm availability and final pricing.`;
+  const tripNotes = data.notes ? ` Notes: ${data.notes}.` : "";
+  const summary = `Booking request from ${data.name}. Phone: ${data.phone}. Email: ${data.email}. Vehicle: ${data.vehicle}. City: ${data.city}. Pick-up date: ${data.start}. Return date: ${data.end}. Purpose: ${data.purpose}.${tripNotes} Please confirm availability and final pricing.`;
 
   dialogContent.textContent = summary;
   mailLink.href = buildMailto(summary);

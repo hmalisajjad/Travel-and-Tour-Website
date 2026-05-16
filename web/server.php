@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && field_value('form_type') === 'moder
             <tr><th align="left">Return date</th><td>' . clean_field('end') . '</td></tr>
             <tr><th align="left">Vehicle</th><td>' . clean_field('vehicle') . '</td></tr>
             <tr><th align="left">Purpose</th><td>' . clean_field('purpose') . '</td></tr>
+            <tr><th align="left">Trip notes</th><td>' . (clean_field('notes') ?: 'No extra notes provided.') . '</td></tr>
         </table>
         <p>This email is the booking history/backup. No database is required.</p>
     ';

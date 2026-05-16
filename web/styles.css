@@ -42,7 +42,8 @@ a {
 
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
 }
 
@@ -292,7 +293,8 @@ label {
 }
 
 input,
-select {
+select,
+textarea {
   width: 100%;
   min-height: 48px;
   border: 1px solid var(--line);
@@ -303,9 +305,15 @@ select {
 }
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: 3px solid rgba(246, 194, 21, 0.3);
   border-color: var(--brand-dark);
+}
+
+textarea {
+  min-height: 108px;
+  resize: vertical;
 }
 
 .form-grid {
