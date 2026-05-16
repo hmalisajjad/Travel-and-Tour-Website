@@ -147,8 +147,10 @@ const formStatus = document.querySelector("[data-form-status]");
 const dialog = document.querySelector("[data-dialog]");
 const dialogContent = document.querySelector("[data-dialog-content]");
 const mailLink = document.querySelector("[data-mail-link]");
+const whatsappLink = document.querySelector("[data-whatsapp-link]");
 const closeDialog = document.querySelector("[data-dialog-close]");
 const slides = [...document.querySelectorAll(".hero-slide")];
+const whatsappNumber = "923329271420";
 
 function formatCategory(category) {
   return category.charAt(0).toUpperCase() + category.slice(1);
@@ -189,6 +191,16 @@ function buildMailto(summary) {
   return `mailto:alisajjad251992@gmail.com?subject=${subject}&body=${body}`;
 }
 
+function buildWhatsApp(summary) {
+  const message = [
+    "Booking request - Usman Tour and Travels",
+    "",
+    summary.replaceAll(". ", ".\n")
+  ].join("\n");
+
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
 navToggle.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("is-open");
   navToggle.setAttribute("aria-expanded", String(isOpen));
@@ -222,41 +234,25 @@ grid.addEventListener("click", (event) => {
   formStatus.textContent = `${link.dataset.book} selected. Add dates and city to complete the request.`;
 });
 
-bookingForm.addEventListener("submit", async (event) => {
+bookingForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(bookingForm);
   const data = Object.fromEntries(formData.entries());
   const tripNotes = data.notes ? ` Notes: ${data.notes}.` : "";
   const summary = `Booking request from ${data.name}. Phone: ${data.phone}. Email: ${data.email}. Vehicle: ${data.vehicle}. City: ${data.city}. Pick-up date: ${data.start}. Return date: ${data.end}. Purpose: ${data.purpose}.${tripNotes} Please confirm availability and final pricing.`;
+  const whatsappUrl = buildWhatsApp(summary);
 
-  dialogContent.textContent = summary;
+  dialogContent.textContent = "Your booking request has been prepared for WhatsApp. Please tap Send in WhatsApp so Usman Tour and Travels receives the full form details.";
   mailLink.href = buildMailto(summary);
-  formStatus.textContent = "Sending your booking request...";
-
-  try {
-    const response = await fetch(bookingForm.action, {
-      method: "POST",
-      headers: { Accept: "application/json" },
-      body: formData
-    });
-    const result = await response.json();
-
-    if (!response.ok || !result.ok) {
-      throw new Error(result.message || "Booking email could not be sent.");
-    }
-
-    formStatus.textContent = "Booking request sent successfully.";
-    dialogContent.textContent = "Your booking request has been sent to the Usman Tour and Travels. They will contact you as soon as they get the email.";
-    bookingForm.reset();
-  } catch (error) {
-    formStatus.textContent = "Email server could not send the request. Use the email request button as a fallback.";
-    dialogContent.textContent = "The booking request could not be sent automatically from this server. Please use the email request button below so Usman Tour and Travels can receive it.";
-  }
+  whatsappLink.href = whatsappUrl;
+  formStatus.textContent = "WhatsApp booking message is ready. Tap Send in WhatsApp to complete it.";
+  window.open(whatsappUrl, "_blank", "noopener");
+  bookingForm.reset();
 
   if (typeof dialog.showModal === "function") {
     dialog.showModal();
   } else {
-    window.location.href = mailLink.href;
+    window.location.href = whatsappUrl;
   }
 });
 
