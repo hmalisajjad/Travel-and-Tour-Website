@@ -32,7 +32,7 @@ const vehicles = [
     image: "images/honda-cityview-631486.webp",
     year: "2025-2026",
     seats: "4 seats",
-    local: "Hybrid quote",
+    local: "Economy quote",
     outstation: "Route quote"
   },
   {
@@ -119,7 +119,7 @@ const vehicles = [
   {
     name: "Toyota Hiace Deluxe",
     category: "van",
-    image: "images/Hiace%20Hiroof%20Toyota.jpg",
+    image: "images/grandcabin.jpg",
     year: "2024-2026",
     seats: "10-14 seats",
     local: "Group quote",
