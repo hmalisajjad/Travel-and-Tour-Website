@@ -82,8 +82,8 @@ textarea {
 }
 
 .brand img {
-  width: 78px;
-  height: 48px;
+  width: 58px;
+  height: 58px;
   object-fit: contain;
 }
 
@@ -442,7 +442,7 @@ textarea {
   width: 100%;
   height: 220px;
   object-fit: contain;
-  padding: 10px;
+  padding: 6px;
   background: #eef3f4;
 }
 
@@ -597,8 +597,8 @@ textarea {
 }
 
 .site-footer img {
-  width: 82px;
-  height: 50px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
 }
 

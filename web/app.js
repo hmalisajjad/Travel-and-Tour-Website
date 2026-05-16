@@ -1,11 +1,11 @@
 const vehicles = [
   {
-    name: "Toyota Corolla Cross Hybrid",
-    category: "hybrid",
-    image: "images/brv.jpg",
-    year: "2025-2026",
+    name: "Honda Civic",
+    category: "sedan",
+    image: "images/Honda%20Civic.jpg",
+    year: "2024-2026",
     seats: "4 seats",
-    local: "City quote",
+    local: "Premium quote",
     outstation: "Route quote"
   },
   {
@@ -21,15 +21,6 @@ const vehicles = [
     name: "Toyota Corolla X Grande",
     category: "sedan",
     image: "images/Corolla-X.jpg",
-    year: "2024-2026",
-    seats: "4 seats",
-    local: "Premium quote",
-    outstation: "Route quote"
-  },
-  {
-    name: "Honda Civic",
-    category: "sedan",
-    image: "images/Honda%20Civic.jpg",
     year: "2024-2026",
     seats: "4 seats",
     local: "Premium quote",
@@ -87,6 +78,24 @@ const vehicles = [
     year: "2024-2026",
     seats: "4 seats",
     local: "VIP quote",
+    outstation: "Protocol quote"
+  },
+  {
+    name: "BMW 7 Series",
+    category: "luxury",
+    image: "images/bmw%207series.jpg",
+    year: "2024-2026",
+    seats: "4 seats",
+    local: "VIP quote",
+    outstation: "Protocol quote"
+  },
+  {
+    name: "Audi A6",
+    category: "luxury",
+    image: "images/audi%20a6%20a.jpg",
+    year: "2024-2026",
+    seats: "4 seats",
+    local: "Executive quote",
     outstation: "Protocol quote"
   },
   {
