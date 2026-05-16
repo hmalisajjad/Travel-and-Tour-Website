@@ -431,12 +431,19 @@ textarea {
   flex-direction: column;
 }
 
-.vehicle-card img,
-.service-card img {
+.vehicle-card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
   background: #d9e2e5;
+}
+
+.service-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  padding: 10px;
+  background: #eef3f4;
 }
 
 .vehicle-body,

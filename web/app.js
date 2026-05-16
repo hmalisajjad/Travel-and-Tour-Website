@@ -2,7 +2,7 @@ const vehicles = [
   {
     name: "Toyota Corolla Cross Hybrid",
     category: "hybrid",
-    image: "images/Corolla-X.jpg",
+    image: "images/brv.jpg",
     year: "2025-2026",
     seats: "4 seats",
     local: "City quote",
@@ -27,8 +27,17 @@ const vehicles = [
     outstation: "Route quote"
   },
   {
+    name: "Honda Civic",
+    category: "sedan",
+    image: "images/Honda%20Civic.jpg",
+    year: "2024-2026",
+    seats: "4 seats",
+    local: "Premium quote",
+    outstation: "Route quote"
+  },
+  {
     name: "Honda City",
-    category: "hybrid",
+    category: "sedan",
     image: "images/honda-cityview-631486.webp",
     year: "2025-2026",
     seats: "4 seats",
