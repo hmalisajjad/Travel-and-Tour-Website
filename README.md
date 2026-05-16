@@ -2,10 +2,10 @@
 
 ## Modernized version
 
-The refreshed responsive website is available at `web/index.html`. It keeps the original U&A Travels content and assets, while adding a modern landing page, mobile navigation, dynamic fleet filtering, and a booking request summary flow.
+The refreshed responsive website is available at `web/index.html`. It keeps the original Usman Tour and Travels content and assets, while adding a modern landing page, mobile navigation, dynamic fleet filtering, and a booking request summary flow.
 
-Our aim is to design and create a data management system for U & A Travels. This enables customer to rent a vehicle and hire a guider or rent a hotel room that can be used temporarily during a specified period of time. This system increase customer relations and simplify reservations and staff management.
-The website U & A Travels has a very user-friendly interface so that the users will easily make different reservations. By using this system client can manage their rental, hotels, and tour guide and vehicle issues.
+Our aim is to design and create a data management system for Usman Tour and Travels. This enables customer to rent a vehicle and hire a guider or rent a hotel room that can be used temporarily during a specified period of time. This system increase customer relations and simplify reservations and staff management.
+The website Usman Tour and Travels has a very user-friendly interface so that the users will easily make different reservations. By using this system client can manage their rental, hotels, and tour guide and vehicle issues.
 The new data can be added or an existed data can be edited or deleted by the administrators.
 The customer should visit our website and avail different type of facilities that are available there. Then he/she can view the available cars in a branch and make a reservation for a car or holidays planning.
 So this system provides benefit to both the owner and the customer in different ways.

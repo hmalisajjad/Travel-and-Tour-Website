@@ -151,7 +151,7 @@ if ( isset( $_POST['reserve'] ) ) {
 
 
 
-    <title> U&A Travels</title>
+    <title> Usman Tour and Travels</title>
     <link rel="stylesheet" href="fypstyle.css">
 </head>
 
@@ -392,7 +392,7 @@ if ( isset( $_POST['reserve'] ) ) {
                 <img class="card-img-top" src="images/rent%20a%20car.jpg"alt="">
                 <div class="card-body">
                     <h4 class="card-title">Rent a Car</h4>
-                    <p class="card-text">U&A travels provide online car rental and trip management facility to their customers. Customers can hire different type of vehicle for pick and drop, business meetings, and many other purposes. Customer can also book online their hotels and also hire tour operators for their trips.</p>
+                    <p class="card-text">Usman Tour and Travels provide online car rental and trip management facility to their customers. Customers can hire different type of vehicle for pick and drop, business meetings, and many other purposes. Customer can also book online their hotels and also hire tour operators for their trips.</p>
                 </div>
                 <div class="book-button text-center">
                     <button class="book-now-btn mb-3">Book Now</button>
@@ -529,7 +529,7 @@ if ( isset( $_POST['reserve'] ) ) {
         <div class="col-md-8 mb-5">
             <h2>What We Do</h2>
             <hr>
-            <p>U&A Travels is not just any other car rental company, IT’S A Family. Our close-to- zero accident ratio due to stringent Health, Safety and Environment (HSE) controls, coupled with efficient, cost-effective and industry best practices transport solutions, make us one of the leading car rental companies in Pakistan.</p>
+            <p>Usman Tour and Travels is not just any other car rental company, IT’S A Family. Our close-to- zero accident ratio due to stringent Health, Safety and Environment (HSE) controls, coupled with efficient, cost-effective and industry best practices transport solutions, make us one of the leading car rental companies in Pakistan.</p>
 
             <p>We provide a variety of car rental services including, time and mileage, daily, weekly, monthly, yearly and tailored-to-choice chauffeur driven and self-driven vehicles.</p>
 
@@ -540,7 +540,7 @@ if ( isset( $_POST['reserve'] ) ) {
             <h2>Contact Us</h2>
             <hr>
             <address>
-                <strong>U&A Travels</strong>
+                <strong>Usman Tour and Travels</strong>
 
             </address>
             <address>
@@ -610,7 +610,7 @@ if ( isset( $_POST['reserve'] ) ) {
             <div class="row">
                 <div class="col-lg-12 text-center text-secondary">
                     <p>
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved By U&A Travels<i class="fa fa-heart-o" aria-hidden="true"></i>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved By Usman Tour and Travels<i class="fa fa-heart-o" aria-hidden="true"></i>
 
                 </div>
             </div>
