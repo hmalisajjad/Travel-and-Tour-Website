@@ -9,27 +9,27 @@ const vehicles = [
     outstation: "Route quote"
   },
   {
-    name: "Honda City Aspire",
+    name: "Toyota Yaris ATIV X",
     category: "sedan",
-    image: "images/city.jpg",
+    image: "https://toyota-central.com/Assets/images/Vehicle/Yaris/Yaris.jpg",
     year: "2024-2026",
     seats: "4 seats",
     local: "Economy quote",
     outstation: "Route quote"
   },
   {
-    name: "Honda Civic RS Turbo",
+    name: "Toyota Corolla X Grande",
     category: "sedan",
-    image: "images/civic.jpg",
+    image: "https://toyota-central.com/Assets/images/Vehicle/CorollaX/Exterior4.jpg",
     year: "2024-2026",
     seats: "4 seats",
     local: "Premium quote",
     outstation: "Route quote"
   },
   {
-    name: "Honda HR-V e:HEV",
+    name: "Toyota Camry Hybrid",
     category: "hybrid",
-    image: "images/brv.jpg",
+    image: "https://toyota-central.com/Assets/images/Vehicle/Camry/Exterior/Exterior1.jpg",
     year: "2025-2026",
     seats: "4 seats",
     local: "Hybrid quote",
@@ -72,10 +72,10 @@ const vehicles = [
     outstation: "Tour quote"
   },
   {
-    name: "Mercedes S-Class",
+    name: "Toyota Camry Executive",
     category: "luxury",
-    image: "images/s%20class.jpg",
-    year: "Recent model",
+    image: "https://toyota-central.com/Assets/images/Vehicle/Camry/Exterior/Exterior3.jpg",
+    year: "2024-2026",
     seats: "4 seats",
     local: "VIP quote",
     outstation: "Protocol quote"
@@ -92,9 +92,9 @@ const vehicles = [
   {
     name: "Toyota Coaster / Grand Cabin",
     category: "van",
-    image: "images/grandcabin.jpg",
-    year: "Recent model",
-    seats: "Group seats",
+    image: "https://toyota-central.com/Assets/images/body-types/Coaster.png",
+    year: "2024-2026",
+    seats: "20+ seats",
     local: "Group quote",
     outstation: "Tour quote"
   }
