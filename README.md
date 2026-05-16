@@ -1,5 +1,9 @@
 # Travel-and-Tour-Website
 
+## Modernized version
+
+The refreshed responsive website is available at `web/index.html`. It keeps the original U&A Travels content and assets, while adding a modern landing page, mobile navigation, dynamic fleet filtering, and a booking request summary flow.
+
 Our aim is to design and create a data management system for U & A Travels. This enables customer to rent a vehicle and hire a guider or rent a hotel room that can be used temporarily during a specified period of time. This system increase customer relations and simplify reservations and staff management.
 The website U & A Travels has a very user-friendly interface so that the users will easily make different reservations. By using this system client can manage their rental, hotels, and tour guide and vehicle issues.
 The new data can be added or an existed data can be edited or deleted by the administrators.
