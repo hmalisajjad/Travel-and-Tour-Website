@@ -48,11 +48,26 @@
             </div>
           </div>
 
-          <form class="booking-card" id="booking" data-booking-form>
+          <form class="booking-card" id="booking" action="server.php" method="post" data-booking-form>
+            <input type="hidden" name="form_type" value="modern_booking">
             <div class="form-head">
               <p class="eyebrow">Quick request</p>
               <h2>Plan your ride</h2>
             </div>
+            <div class="form-grid">
+              <label>
+                Your name
+                <input name="name" type="text" autocomplete="name" required>
+              </label>
+              <label>
+                Phone
+                <input name="phone" type="tel" autocomplete="tel" required>
+              </label>
+            </div>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" required>
+            </label>
             <label>
               Pick-up city
               <select name="city" required>

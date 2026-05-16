@@ -159,7 +159,7 @@ function fillVehicleOptions() {
 function buildMailto(summary) {
   const subject = encodeURIComponent("U&A Travels booking request");
   const body = encodeURIComponent(summary.replaceAll(". ", ".\n"));
-  return `mailto:greatvirgo251992@hotmail.com?subject=${subject}&body=${body}`;
+  return `mailto:alisajjad251992@gmail.com?subject=${subject}&body=${body}`;
 }
 
 navToggle.addEventListener("click", () => {
@@ -195,14 +195,35 @@ grid.addEventListener("click", (event) => {
   formStatus.textContent = `${link.dataset.book} selected. Add dates and city to complete the request.`;
 });
 
-bookingForm.addEventListener("submit", (event) => {
+bookingForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const data = Object.fromEntries(new FormData(bookingForm).entries());
-  const summary = `Booking request for ${data.vehicle} in ${data.city}. Pick-up date: ${data.start}. Return date: ${data.end}. Purpose: ${data.purpose}. Please confirm availability and final pricing.`;
+  const formData = new FormData(bookingForm);
+  const data = Object.fromEntries(formData.entries());
+  const summary = `Booking request from ${data.name}. Phone: ${data.phone}. Email: ${data.email}. Vehicle: ${data.vehicle}. City: ${data.city}. Pick-up date: ${data.start}. Return date: ${data.end}. Purpose: ${data.purpose}. Please confirm availability and final pricing.`;
 
   dialogContent.textContent = summary;
   mailLink.href = buildMailto(summary);
-  formStatus.textContent = "Request summary ready. You can email it or call the team.";
+  formStatus.textContent = "Sending your booking request...";
+
+  try {
+    const response = await fetch(bookingForm.action, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: formData
+    });
+    const result = await response.json();
+
+    if (!response.ok || !result.ok) {
+      throw new Error(result.message || "Booking email could not be sent.");
+    }
+
+    formStatus.textContent = "Booking request sent. Your email inbox is now the booking history.";
+    dialogContent.textContent = "Your booking request has been emailed to U&A Travels. The email copy will work as the booking history/backup.";
+    bookingForm.reset();
+  } catch (error) {
+    formStatus.textContent = "Email server is not available here. Use the email request button as a fallback.";
+    dialogContent.textContent = `${summary} If this page is opened without PHP hosting, use the email request button to send it manually.`;
+  }
 
   if (typeof dialog.showModal === "function") {
     dialog.showModal();

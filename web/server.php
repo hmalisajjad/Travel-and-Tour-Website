@@ -1,4 +1,65 @@
 <?php
+const BOOKING_EMAIL_TO = 'alisajjad251992@gmail.com';
+
+function field_value($key) {
+    return trim($_POST[$key] ?? '');
+}
+
+function clean_field($key) {
+    return htmlspecialchars(field_value($key), ENT_QUOTES, 'UTF-8');
+}
+
+function send_json($status, $message, $code = 200) {
+    http_response_code($code);
+    header('Content-Type: application/json');
+    echo json_encode([
+        'ok' => $status,
+        'message' => $message
+    ]);
+    exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && field_value('form_type') === 'modern_booking') {
+    $required = ['name', 'phone', 'email', 'city', 'start', 'end', 'vehicle', 'purpose'];
+    foreach ($required as $field) {
+        if (field_value($field) === '') {
+            send_json(false, 'Please complete all required booking fields.', 422);
+        }
+    }
+
+    $customer_email = field_value('email');
+    if (!filter_var($customer_email, FILTER_VALIDATE_EMAIL)) {
+        send_json(false, 'Please enter a valid email address.', 422);
+    }
+
+    $subject = 'New U&A Travels booking request - ' . clean_field('vehicle');
+    $message = '
+        <h2>New booking request</h2>
+        <table cellpadding="8" cellspacing="0" border="1" style="border-collapse:collapse;width:100%;font-family:Arial,sans-serif">
+            <tr><th align="left">Name</th><td>' . clean_field('name') . '</td></tr>
+            <tr><th align="left">Phone</th><td>' . clean_field('phone') . '</td></tr>
+            <tr><th align="left">Email</th><td>' . clean_field('email') . '</td></tr>
+            <tr><th align="left">Pick-up city</th><td>' . clean_field('city') . '</td></tr>
+            <tr><th align="left">Pick-up date</th><td>' . clean_field('start') . '</td></tr>
+            <tr><th align="left">Return date</th><td>' . clean_field('end') . '</td></tr>
+            <tr><th align="left">Vehicle</th><td>' . clean_field('vehicle') . '</td></tr>
+            <tr><th align="left">Purpose</th><td>' . clean_field('purpose') . '</td></tr>
+        </table>
+        <p>This email is the booking history/backup. No database is required.</p>
+    ';
+
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/html; charset=UTF-8\r\n";
+    $headers .= "From: U&A Travels Website <" . BOOKING_EMAIL_TO . ">\r\n";
+    $headers .= "Reply-To: " . $customer_email . "\r\n";
+
+    if (mail(BOOKING_EMAIL_TO, $subject, $message, $headers)) {
+        send_json(true, 'Booking request sent successfully.');
+    }
+
+    send_json(false, 'Email could not be sent by this server. Please check PHP mail/SMTP hosting settings.', 500);
+}
+
 if ( isset( $_POST['submit'] ) ) {
     $to = 'alisajjad251992@gmail.com';
     $pick_up_location = $_POST["pick-up-location"];
