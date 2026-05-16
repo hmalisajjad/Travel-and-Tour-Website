@@ -2,7 +2,7 @@ const vehicles = [
   {
     name: "Toyota Corolla Cross Hybrid",
     category: "hybrid",
-    image: "https://toyota-central.com/Assets/images/Vehicle/CorollaCross/Exterior4.jpg",
+    image: "images/Corolla-X.jpg",
     year: "2025-2026",
     seats: "4 seats",
     local: "City quote",
@@ -11,7 +11,7 @@ const vehicles = [
   {
     name: "Toyota Yaris ATIV X",
     category: "sedan",
-    image: "https://toyota-central.com/Assets/images/Vehicle/Yaris/Yaris.jpg",
+    image: "images/Toyota%20Yaris.jpg",
     year: "2024-2026",
     seats: "4 seats",
     local: "Economy quote",
@@ -20,16 +20,16 @@ const vehicles = [
   {
     name: "Toyota Corolla X Grande",
     category: "sedan",
-    image: "https://toyota-central.com/Assets/images/Vehicle/CorollaX/Exterior4.jpg",
+    image: "images/Corolla-X.jpg",
     year: "2024-2026",
     seats: "4 seats",
     local: "Premium quote",
     outstation: "Route quote"
   },
   {
-    name: "Toyota Camry Hybrid",
+    name: "Honda City",
     category: "hybrid",
-    image: "https://toyota-central.com/Assets/images/Vehicle/Camry/Exterior/Exterior1.jpg",
+    image: "images/honda-cityview-631486.webp",
     year: "2025-2026",
     seats: "4 seats",
     local: "Hybrid quote",
@@ -38,7 +38,7 @@ const vehicles = [
   {
     name: "Toyota Revo Rocco",
     category: "suv",
-    image: "https://toyota-central.com/Assets/images/Vehicle/Revo/Revo-showcase1.jpg",
+    image: "images/toyota%20V8%20Landcruiser.jpg",
     year: "2025-2026",
     seats: "4 seats",
     local: "4x4 quote",
@@ -47,7 +47,7 @@ const vehicles = [
   {
     name: "Toyota Fortuner Legender",
     category: "suv",
-    image: "https://toyota-central.com/Assets/images/Vehicle/Fortuner/Fortunier.png",
+    image: "images/fortuner-legender-jpg.jpg",
     year: "2025-2026",
     seats: "6-7 seats",
     local: "SUV quote",
@@ -56,7 +56,7 @@ const vehicles = [
   {
     name: "Toyota Land Cruiser 300",
     category: "suv",
-    image: "https://toyota-central.com/Assets/images/Vehicle/LandCruiser/Exterior/Exterior1.jpg",
+    image: "images/LC-300.jpg",
     year: "2024-2026",
     seats: "6 seats",
     local: "Executive quote",
@@ -65,16 +65,16 @@ const vehicles = [
   {
     name: "Toyota Land Cruiser Prado",
     category: "luxury",
-    image: "https://toyota-central.com/Assets/images/Vehicle/Prado/Prado1.png",
+    image: "images/Toyota%20Prado%202019%20model.jpg",
     year: "2024-2026",
     seats: "6-7 seats",
     local: "Executive quote",
     outstation: "Tour quote"
   },
   {
-    name: "Toyota Camry Executive",
+    name: "Mercedes S-Class",
     category: "luxury",
-    image: "https://toyota-central.com/Assets/images/Vehicle/Camry/Exterior/Exterior3.jpg",
+    image: "images/Mercedes%20s%20classwebp.webp",
     year: "2024-2026",
     seats: "4 seats",
     local: "VIP quote",
@@ -83,7 +83,7 @@ const vehicles = [
   {
     name: "Toyota Hiace Deluxe",
     category: "van",
-    image: "https://toyota-central.com/Assets/images/Vehicle/Hiace/Color/Color-Range.png",
+    image: "images/Hiace%20Hiroof%20Toyota.jpg",
     year: "2024-2026",
     seats: "10-14 seats",
     local: "Group quote",
@@ -92,7 +92,7 @@ const vehicles = [
   {
     name: "Toyota Coaster / Grand Cabin",
     category: "van",
-    image: "https://toyota-central.com/Assets/images/body-types/Coaster.png",
+    image: "images/Toyota%20Coaster.jpg",
     year: "2024-2026",
     seats: "20+ seats",
     local: "Group quote",
