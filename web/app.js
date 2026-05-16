@@ -149,11 +149,14 @@ const startDateInput = document.querySelector("[data-start-date]");
 const endDateInput = document.querySelector("[data-end-date]");
 const dialog = document.querySelector("[data-dialog]");
 const dialogContent = document.querySelector("[data-dialog-content]");
-const mailLink = document.querySelector("[data-mail-link]");
+const emailButton = document.querySelector("[data-email-button]");
 const whatsappLink = document.querySelector("[data-whatsapp-link]");
 const closeDialog = document.querySelector("[data-dialog-close]");
 const slides = [...document.querySelectorAll(".hero-slide")];
 const whatsappNumber = "923329271420";
+const bookingEmail = "alisajjad251992@gmail.com";
+const formSubmitEndpoint = `https://formsubmit.co/ajax/${bookingEmail}`;
+let latestBooking = null;
 
 function formatCategory(category) {
   return category.charAt(0).toUpperCase() + category.slice(1);
@@ -214,12 +217,6 @@ function setDateMinimums() {
   });
 }
 
-function buildMailto(summary) {
-  const subject = encodeURIComponent("Usman Tour and Travels booking request");
-  const body = encodeURIComponent(summary.replaceAll(". ", ".\n"));
-  return `mailto:alisajjad251992@gmail.com?subject=${subject}&body=${body}`;
-}
-
 function buildWhatsApp(summary) {
   const message = [
     "Booking request - Usman Tour and Travels",
@@ -228,6 +225,59 @@ function buildWhatsApp(summary) {
   ].join("\n");
 
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+function buildEmailPayload(data, summary) {
+  const payload = new FormData();
+
+  payload.append("_subject", "Usman Tour and Travels booking request");
+  payload.append("_template", "table");
+  payload.append("_captcha", "false");
+  payload.append("_replyto", data.email);
+  payload.append("Name", data.name);
+  payload.append("Phone", data.phone);
+  payload.append("Email", data.email);
+  payload.append("Vehicle", data.vehicle);
+  payload.append("Pick-up city", data.city);
+  payload.append("Pick-up date", data.start);
+  payload.append("Return date", data.end);
+  payload.append("Trip purpose", data.purpose);
+  payload.append("Trip notes", data.notes || "No extra notes provided");
+  payload.append("Booking summary", summary.replaceAll(". ", ".\n"));
+
+  return payload;
+}
+
+async function sendEmailRequest() {
+  if (!latestBooking || !emailButton) return;
+
+  emailButton.disabled = true;
+  emailButton.textContent = "Sending...";
+  dialogContent.textContent = "Sending your booking request by email. Please wait a moment.";
+
+  try {
+    const response = await fetch(formSubmitEndpoint, {
+      method: "POST",
+      headers: {
+        Accept: "application/json"
+      },
+      body: latestBooking.payload
+    });
+
+    if (!response.ok) {
+      throw new Error("Email service rejected the request");
+    }
+
+    dialogContent.textContent = "Your booking request has been sent to Usman Tour and Travels. They will contact you as soon as they receive the email.";
+    formStatus.textContent = "Booking request sent by email.";
+    bookingForm.reset();
+  } catch (error) {
+    dialogContent.textContent = "We could not send the email automatically right now. Please send the same request on WhatsApp or call Usman Tour and Travels.";
+    formStatus.textContent = "Email sending failed. WhatsApp and call options are still available.";
+  } finally {
+    emailButton.disabled = false;
+    emailButton.textContent = "Email request";
+  }
 }
 
 function observeRevealItems(items = document.querySelectorAll("[data-reveal]")) {
@@ -296,10 +346,12 @@ bookingForm.addEventListener("submit", (event) => {
   const whatsappUrl = buildWhatsApp(summary);
 
   dialogContent.textContent = "Your booking request is ready. Choose WhatsApp, email, or call below to send the request to Usman Tour and Travels.";
-  mailLink.href = buildMailto(summary);
   whatsappLink.href = whatsappUrl;
+  latestBooking = {
+    payload: buildEmailPayload(data, summary),
+    summary
+  };
   formStatus.textContent = "Booking request ready. Choose WhatsApp, email, or call from the popup.";
-  bookingForm.reset();
 
   if (typeof dialog.showModal === "function") {
     dialog.showModal();
@@ -308,6 +360,7 @@ bookingForm.addEventListener("submit", (event) => {
   }
 });
 
+emailButton?.addEventListener("click", sendEmailRequest);
 closeDialog.addEventListener("click", () => dialog.close());
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
