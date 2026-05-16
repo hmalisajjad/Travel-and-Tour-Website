@@ -157,7 +157,7 @@ function fillVehicleOptions() {
 }
 
 function buildMailto(summary) {
-  const subject = encodeURIComponent("U&A Travels booking request");
+  const subject = encodeURIComponent("Usman Tour and Travels booking request");
   const body = encodeURIComponent(summary.replaceAll(". ", ".\n"));
   return `mailto:alisajjad251992@gmail.com?subject=${subject}&body=${body}`;
 }
@@ -217,12 +217,12 @@ bookingForm.addEventListener("submit", async (event) => {
       throw new Error(result.message || "Booking email could not be sent.");
     }
 
-    formStatus.textContent = "Booking request sent. Your email inbox is now the booking history.";
-    dialogContent.textContent = "Your booking request has been emailed to U&A Travels. The email copy will work as the booking history/backup.";
+    formStatus.textContent = "Booking request sent successfully.";
+    dialogContent.textContent = "Your booking request has been sent to the Usman Tour and Travels. They will contact you as soon as they get the email.";
     bookingForm.reset();
   } catch (error) {
-    formStatus.textContent = "Email server is not available here. Use the email request button as a fallback.";
-    dialogContent.textContent = `${summary} If this page is opened without PHP hosting, use the email request button to send it manually.`;
+    formStatus.textContent = "Email server could not send the request. Use the email request button as a fallback.";
+    dialogContent.textContent = "The booking request could not be sent automatically from this server. Please use the email request button below so Usman Tour and Travels can receive it.";
   }
 
   if (typeof dialog.showModal === "function") {

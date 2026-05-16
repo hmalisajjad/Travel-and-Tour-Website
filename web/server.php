@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && field_value('form_type') === 'moder
         send_json(false, 'Please enter a valid email address.', 422);
     }
 
-    $subject = 'New U&A Travels booking request - ' . clean_field('vehicle');
+    $subject = 'New Usman Tour and Travels booking request - ' . clean_field('vehicle');
     $message = '
         <h2>New booking request</h2>
         <table cellpadding="8" cellspacing="0" border="1" style="border-collapse:collapse;width:100%;font-family:Arial,sans-serif">
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && field_value('form_type') === 'moder
 
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-    $headers .= "From: U&A Travels Website <" . BOOKING_EMAIL_TO . ">\r\n";
+    $headers .= "From: Usman Tour and Travels Website <" . BOOKING_EMAIL_TO . ">\r\n";
     $headers .= "Reply-To: " . $customer_email . "\r\n";
 
     if (mail(BOOKING_EMAIL_TO, $subject, $message, $headers)) {
