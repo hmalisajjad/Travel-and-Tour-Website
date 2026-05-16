@@ -38,11 +38,20 @@ const vehicles = [
   {
     name: "Toyota Revo Rocco",
     category: "suv",
-    image: "images/toyota%20V8%20Landcruiser.jpg",
+    image: "images/revos.jpg",
     year: "2025-2026",
     seats: "4 seats",
     local: "4x4 quote",
     outstation: "Tour quote"
+  },
+  {
+    name: "Honda BR-V",
+    category: "suv",
+    image: "images/brvs.jpg",
+    year: "2024-2026",
+    seats: "6-7 seats",
+    local: "Family quote",
+    outstation: "Route quote"
   },
   {
     name: "Toyota Fortuner Legender",
@@ -96,6 +105,15 @@ const vehicles = [
     year: "2024-2026",
     seats: "4 seats",
     local: "Executive quote",
+    outstation: "Protocol quote"
+  },
+  {
+    name: "Mercedes G-Wagon",
+    category: "luxury",
+    image: "images/G-Wagon.jpg",
+    year: "2024-2026",
+    seats: "4 seats",
+    local: "VIP quote",
     outstation: "Protocol quote"
   },
   {
