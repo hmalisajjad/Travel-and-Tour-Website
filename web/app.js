@@ -160,6 +160,8 @@ function formatCategory(category) {
 }
 
 function renderVehicles(category = "all") {
+  if (!grid) return;
+
   const filtered = category === "all" ? vehicles : vehicles.filter((vehicle) => vehicle.category === category);
 
   grid.innerHTML = filtered.map((vehicle) => `
@@ -229,8 +231,12 @@ function buildWhatsApp(summary) {
 }
 
 function observeRevealItems(items = document.querySelectorAll("[data-reveal]")) {
-  if (!("IntersectionObserver" in window)) {
-    items.forEach((item) => item.classList.add("is-visible"));
+  const revealItems = [...items];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const smallScreen = window.matchMedia("(max-width: 760px)").matches;
+
+  if (!("IntersectionObserver" in window) || reducedMotion || smallScreen) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
     return;
   }
 
@@ -241,11 +247,11 @@ function observeRevealItems(items = document.querySelectorAll("[data-reveal]")) 
       activeObserver.unobserve(entry.target);
     });
   }, {
-    threshold: 0.16,
-    rootMargin: "0px 0px -40px"
+    threshold: 0.08,
+    rootMargin: "0px 0px 80px"
   });
 
-  items.forEach((item) => observer.observe(item));
+  revealItems.forEach((item) => observer.observe(item));
 }
 
 navToggle.addEventListener("click", () => {

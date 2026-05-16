@@ -866,6 +866,11 @@ textarea {
     margin-top: 10px;
   }
 
+  .brand img {
+    width: 48px;
+    height: 48px;
+  }
+
   .nav-toggle {
     display: block;
   }
@@ -894,11 +899,63 @@ textarea {
   }
 
   .hero {
-    padding-top: 112px;
+    padding: 104px 12px 30px;
+    background: var(--navy);
+  }
+
+  .hero-media,
+  .hero-overlay {
+    inset: 0 0 auto;
+    height: 460px;
+  }
+
+  .hero-slide {
+    object-position: center top;
+    transform: scale(1.02);
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(8, 18, 25, 0.78) 0%, rgba(8, 18, 25, 0.54) 44%, rgba(8, 18, 25, 0.96) 100%),
+      linear-gradient(90deg, rgba(8, 18, 25, 0.76), rgba(8, 18, 25, 0.28));
+  }
+
+  .hero-content {
+    gap: 22px;
+    align-items: start;
+  }
+
+  .hero-text {
+    margin-top: 18px;
   }
 
   h1 {
-    font-size: clamp(3.2rem, 18vw, 5.4rem);
+    font-size: clamp(3rem, 17vw, 5.1rem);
+  }
+
+  .route-line {
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .route-line span {
+    min-height: 32px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .route-line span:not(:last-child)::after {
+    display: none;
+  }
+
+  .hero-actions {
+    margin-top: 22px;
+  }
+
+  .booking-card {
+    margin-top: 4px;
+    padding: 18px;
+    background: #fff;
   }
 
   .form-grid,
@@ -910,7 +967,16 @@ textarea {
 
   .vehicle-card img,
   .service-card img {
-    height: 210px;
+    height: 230px;
+  }
+
+  .fleet-grid [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  #fleet {
+    scroll-margin-top: 96px;
   }
 
   .floating-whatsapp {
@@ -924,11 +990,42 @@ textarea {
 
 @media (max-width: 460px) {
   .hero {
+    padding-top: 96px;
     padding-inline: 12px;
   }
 
+  .hero-media,
+  .hero-overlay {
+    height: 390px;
+  }
+
+  h1 {
+    font-size: clamp(2.65rem, 16vw, 4.2rem);
+  }
+
+  .hero-text {
+    font-size: 0.98rem;
+  }
+
   .booking-card {
-    padding: 16px;
+    padding: 14px;
+  }
+
+  .section {
+    width: min(100% - 24px, var(--max));
+    padding: 54px 0;
+  }
+
+  .section-muted {
+    padding-inline: 12px;
+  }
+
+  .filter-bar {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    flex: 1 1 calc(50% - 8px);
   }
 
   .vehicle-meta {
