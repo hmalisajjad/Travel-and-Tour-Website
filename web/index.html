@@ -4,14 +4,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Usman Tour and Travels offers chauffeur-driven car rental, airport transfers, tour planning, and corporate transport across Islamabad, Rawalpindi, Lahore, and Pakistan.">
+    <meta name="theme-color" content="#102a3a">
+    <meta property="og:title" content="Usman Tour and Travels | Car Rental & Tour Planning">
+    <meta property="og:description" content="Book chauffeur-driven rentals, airport transfers, corporate rides, and family tours across Pakistan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hmalisajjad.github.io/Travel-and-Tour-Website/">
+    <meta property="og:image" content="https://hmalisajjad.github.io/Travel-and-Tour-Website/images/fortuner-legender-jpg.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <title>Usman Tour and Travels | Car Rental & Tour Planning</title>
+    <link rel="canonical" href="https://hmalisajjad.github.io/Travel-and-Tour-Website/">
+    <link rel="icon" type="image/png" href="images/logo-usman-tour-travel-192.png">
+    <link rel="apple-touch-icon" href="images/logo-usman-tour-travel-192.png">
+    <link rel="preload" as="image" href="images/logo-usman-tour-travel-192.png">
     <link rel="preload" as="image" href="images/Corolla-X.jpg">
     <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "Usman Tour and Travels",
+        "url": "https://hmalisajjad.github.io/Travel-and-Tour-Website/",
+        "logo": "https://hmalisajjad.github.io/Travel-and-Tour-Website/images/logo-usman-tour-travel-192.png",
+        "image": "https://hmalisajjad.github.io/Travel-and-Tour-Website/images/fortuner-legender-jpg.jpg",
+        "telephone": "+923329271420",
+        "email": "greatvirgo251992@hotmail.com",
+        "areaServed": ["Islamabad", "Rawalpindi", "Lahore", "Karachi", "Pakistan"],
+        "sameAs": ["https://www.facebook.com/Usmantourstravel"],
+        "makesOffer": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chauffeur car rental" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Airport and city transfers" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Family tour planning" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate and protocol rides" } }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="site-header" data-header>
       <a class="brand" href="#home" aria-label="Usman Tour and Travels home">
-        <img src="images/logo%20usman%20tour%20and%20travel.png" alt="Usman Tour and Travels logo">
+        <img src="images/logo-usman-tour-travel-192.png" alt="Usman Tour and Travels logo" width="58" height="58" decoding="async">
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
         <span></span>
@@ -31,10 +62,10 @@
     <main id="home">
       <section class="hero">
         <div class="hero-media" aria-hidden="true">
-          <img class="hero-slide is-active" src="images/Corolla-X.jpg" alt="">
-          <img class="hero-slide" src="images/fortuner-legender-jpg.jpg" alt="">
-          <img class="hero-slide" src="images/LC-300.jpg" alt="">
-          <img class="hero-slide" src="images/Range%20rover.jpg" alt="">
+          <img class="hero-slide is-active" src="images/Corolla-X.jpg" alt="" width="1000" height="562" fetchpriority="high" decoding="async">
+          <img class="hero-slide" src="images/fortuner-legender-jpg.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+          <img class="hero-slide" src="images/LC-300.jpg" alt="" width="1024" height="576" loading="lazy" decoding="async">
+          <img class="hero-slide" src="images/Range%20rover.jpg" alt="" width="768" height="1024" loading="lazy" decoding="async">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -63,11 +94,11 @@
             <div class="form-grid">
               <label>
                 Your name
-                <input name="name" type="text" autocomplete="name" required>
+              <input name="name" type="text" autocomplete="name" required>
               </label>
               <label>
                 Phone
-                <input name="phone" type="tel" autocomplete="tel" required>
+              <input name="phone" type="tel" autocomplete="tel" required>
               </label>
             </div>
             <label>
@@ -87,11 +118,11 @@
             <div class="form-grid">
               <label>
                 Pick-up date
-                <input name="start" type="date" required>
+              <input name="start" type="date" required data-start-date>
               </label>
               <label>
                 Return date
-                <input name="end" type="date" required>
+              <input name="end" type="date" required data-end-date>
               </label>
             </div>
             <label>
@@ -143,7 +174,7 @@
         <div class="section-head">
           <p class="eyebrow">Fleet</p>
           <h2>Choose the right vehicle for the trip</h2>
-          <p>Filter current Pakistan-market sedans, SUVs, executive cars, and group vans, then send a route-based booking request.</p>
+          <p><span data-fleet-count>15</span> current Pakistan-market sedans, SUVs, executive cars, and group vans are ready for route-based booking requests.</p>
         </div>
         <div class="filter-bar" role="tablist" aria-label="Vehicle categories" data-filter-bar>
           <button class="filter-btn is-active" type="button" data-filter="all">All</button>
@@ -162,22 +193,22 @@
         </div>
         <div class="service-grid">
           <article class="service-card" data-reveal>
-            <img src="images/Chauffer%20driven.png" alt="Chauffeur driven rental service">
+            <img src="images/Chauffer%20driven.png" alt="Chauffeur driven rental service" loading="lazy" decoding="async">
             <h3>Chauffeur rentals</h3>
             <p>Airport, local, outstation, daily, weekly, and monthly rentals with driver-led trip support.</p>
           </article>
           <article class="service-card" data-reveal>
-            <img src="images/Hiace%20Hiroof%20Toyota.jpg" alt="Airport pickup service">
+            <img src="images/Hiace%20Hiroof%20Toyota.jpg" alt="Airport pickup service" loading="lazy" decoding="async">
             <h3>Airport and city transfers</h3>
             <p>Islamabad, Rawalpindi, Lahore, Karachi, hotel, office, and event transfers with clear pickup details.</p>
           </article>
           <article class="service-card" data-reveal>
-            <img src="images/trip.jpg" alt="Mountain road holiday trip">
+            <img src="images/trip.jpg" alt="Mountain road holiday trip" loading="lazy" decoding="async">
             <h3>Family tour planning</h3>
             <p>Northern areas, intercity travel, hotel coordination, luggage planning, and vehicle suggestions by group size.</p>
           </article>
           <article class="service-card" data-reveal>
-            <img src="images/bmw%207series.jpg" alt="Executive car for corporate and protocol rides">
+            <img src="images/bmw%207series.jpg" alt="Executive car for corporate and protocol rides" loading="lazy" decoding="async">
             <h3>Corporate and protocol rides</h3>
             <p>Executive vehicles, scheduled pickups, guest handling, and professional driver coordination.</p>
           </article>
@@ -234,7 +265,7 @@
     </main>
 
     <footer class="site-footer">
-      <img src="images/logo%20usman%20tour%20and%20travel.png" alt="Usman Tour and Travels logo">
+      <img src="images/logo-usman-tour-travel-192.png" alt="Usman Tour and Travels logo" width="64" height="64" loading="lazy" decoding="async">
       <p>Copyright <span data-year></span> Usman Tour and Travels. All rights reserved.</p>
       <a class="footer-social" href="https://www.facebook.com/Usmantourstravel" target="_blank" rel="noopener">Facebook</a>
     </footer>

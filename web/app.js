@@ -144,6 +144,9 @@ const filterBar = document.querySelector("[data-filter-bar]");
 const vehicleSelect = document.querySelector("[data-vehicle-select]");
 const bookingForm = document.querySelector("[data-booking-form]");
 const formStatus = document.querySelector("[data-form-status]");
+const fleetCount = document.querySelector("[data-fleet-count]");
+const startDateInput = document.querySelector("[data-start-date]");
+const endDateInput = document.querySelector("[data-end-date]");
 const dialog = document.querySelector("[data-dialog]");
 const dialogContent = document.querySelector("[data-dialog-content]");
 const mailLink = document.querySelector("[data-mail-link]");
@@ -161,7 +164,7 @@ function renderVehicles(category = "all") {
 
   grid.innerHTML = filtered.map((vehicle) => `
     <article class="vehicle-card" data-reveal>
-      <img src="${vehicle.image}" alt="${vehicle.name}" loading="lazy">
+      <img src="${vehicle.image}" alt="${vehicle.name}" loading="lazy" decoding="async">
       <div class="vehicle-body">
         <div class="vehicle-top">
           <h3>${vehicle.name}</h3>
@@ -184,6 +187,29 @@ function renderVehicles(category = "all") {
 
 function fillVehicleOptions() {
   vehicleSelect.innerHTML += vehicles.map((vehicle) => `<option>${vehicle.name}</option>`).join("");
+}
+
+function setFleetCount() {
+  if (!fleetCount) return;
+  fleetCount.textContent = String(vehicles.length);
+}
+
+function setDateMinimums() {
+  if (!startDateInput || !endDateInput) return;
+
+  const today = new Date();
+  today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  const minDate = today.toISOString().slice(0, 10);
+
+  startDateInput.min = minDate;
+  endDateInput.min = minDate;
+
+  startDateInput.addEventListener("change", () => {
+    endDateInput.min = startDateInput.value || minDate;
+    if (endDateInput.value && endDateInput.value < endDateInput.min) {
+      endDateInput.value = endDateInput.min;
+    }
+  });
 }
 
 function buildMailto(summary) {
@@ -281,6 +307,8 @@ closeDialog.addEventListener("click", () => dialog.close());
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
 
 observeRevealItems();
+setFleetCount();
+setDateMinimums();
 
 let slideIndex = 0;
 setInterval(() => {
